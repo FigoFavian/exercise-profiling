@@ -57,4 +57,44 @@ d. Graph Result
 ## Jmeter testresult3.jtl for highest-gpa.jmx Test Plan Result Command:
 ![Screenshot 2025-03-14 192837](https://github.com/user-attachments/assets/1ed6219c-c7f6-4ead-9afa-a17c3c0082ce)
 
+By comparing the JMeter Pre to Post Profiling, there are improvement in the speed of the tests. 
+As you can see from the images itself, the test executed had a 20% performance improvement for /all-student-name and /highest-gpa endpoints.
+This was done by making a new branch called "optimize", inside there I improved some methods in StudentService class.
 
+1. What is the difference between the approach of performance testing with JMeter and profiling with IntelliJ Profiler in the context of optimizing application performance?
+
+JMeter focuses on user-level performance testing by simulating traffic, for example thousands of users, to measure how an app handles load, response times, or scalability. 
+It is like stress testing the system from the outside. IntelliJ Profiler is about the code itself. It shows which methods or processes hog CPU, memory, or cause bottlenecks. 
+While JMeter tells us how does the app perform under pressure and the Profiler shows why is a specific part slow.
+
+2. How does the profiling process help you in identifying and understanding the weak points in your application?
+
+Profiling tracks every detail during app execution. It highlights resource heavy methods, memory leaks, and even inefficient loops. 
+If a database query runs 1,000 times in a loop, the profiler flags it letting you refactor it into a single optimized query.
+
+3. Do you think IntelliJ Profiler is effective in assisting you to analyze and identify bottlenecks in your application code?
+
+Intellij Profiler is effective since it integrates with the IDE which means profiling while coding is doable, seeing real time data like CPU spikes or memory usage. 
+Features like flame graphs or method level timers make it easy to spot issues. 
+
+4. What are the main challenges you face when conducting performance testing and profiling, and how do you overcome these challenges?
+
+a. Tests might not mirror real-world use, such as a wrong JMeter thread counts.
+b. A slow API in JMeter could stem from bad code, network latency, and database design.
+Solution -> By Replicating realistic scenarios, profile multiple times, and cross checking metrics like logs or monitoring tools.
+
+5. What are the main benefits you gain from using IntelliJ Profiler for profiling your application code?
+
+a. Directly links performance issues to your code giving a code level clarity.
+b. No need for external tools like debug and profile in one place.
+c. Quickly test optimizations, like swapping a loop with streams.
+
+6. How do you handle situations where the results from profiling with IntelliJ Profiler are not entirely consistent with findings from performance testing using JMeter?
+
+Inconsistencies often come from environment differences like local against production DB or tool focus like JMeter detects slow APIs 
+Solution -> Align test environments and Use both tools like JMeter to flag issues and Profiler into the cause of the performance issue itself.   
+
+7. What strategies do you implement in optimizing application code after analyzing results from performance testing and profiling? How do you ensure the changes you make do not affect the application's functionality?
+
+By optimizing heavy algorithms, reducing database calls, and fixing memory leaks. Using unit or integration tests confirms changes  that don’t break features. 
+And then running JMeter again post optimization to verify improvements which it did worked (The speed improved 20%)
