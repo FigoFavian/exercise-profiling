@@ -61,7 +61,7 @@ By comparing the JMeter Pre to Post Profiling, there are improvement in the spee
 As you can see from the images itself, the test executed had a 20% performance improvement for /all-student-name and /highest-gpa endpoints.
 This was done by making a new branch called "optimize", inside there I improved some methods in StudentService class.
 
-1. What is the difference between the approach of performance testing with JMeter and profiling with IntelliJ Profiler in the context of optimizing application performance?
+1. hat is the difference between the approach of performance testing with JMeter and profiling with IntelliJ Profiler in the context of optimizing application performance?
 
 JMeter focuses on user-level performance testing by simulating traffic, for example thousands of users, to measure how an app handles load, response times, or scalability. 
 It is like stress testing the system from the outside. IntelliJ Profiler is about the code itself. It shows which methods or processes hog CPU, memory, or cause bottlenecks. 
@@ -80,13 +80,16 @@ Features like flame graphs or method level timers make it easy to spot issues.
 4. What are the main challenges you face when conducting performance testing and profiling, and how do you overcome these challenges?
 
 a. Tests might not mirror real-world use, such as a wrong JMeter thread counts.
+
 b. A slow API in JMeter could stem from bad code, network latency, and database design.
 Solution -> By Replicating realistic scenarios, profile multiple times, and cross checking metrics like logs or monitoring tools.
 
 5. What are the main benefits you gain from using IntelliJ Profiler for profiling your application code?
 
 a. Directly links performance issues to your code giving a code level clarity.
+
 b. No need for external tools like debug and profile in one place.
+
 c. Quickly test optimizations, like swapping a loop with streams.
 
 6. How do you handle situations where the results from profiling with IntelliJ Profiler are not entirely consistent with findings from performance testing using JMeter?
